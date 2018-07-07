@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MoveJoystickControl : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class AngleJoystickControl : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     private Image bgImg;
     private Vector2 inputVector;
@@ -34,8 +34,8 @@ public class MoveJoystickControl : MonoBehaviour, IDragHandler, IPointerUpHandle
             pos.x = (pos.x / bgImg.rectTransform.sizeDelta.x);
             pos.y = (pos.y / bgImg.rectTransform.sizeDelta.y);
             inputVector = new Vector2(pos.x, pos.y);
-            /*inputVector = new Vector2
-                (Mathf.Clamp(inputVector.x, -1f, 1f), Mathf.Clamp(inputVector.y, -1f, 1f));*/
+            inputVector = new Vector2
+                (Mathf.Clamp(inputVector.x, -1f, 1f), Mathf.Clamp(inputVector.y, -1f, 1f));
         }
     }
     public Vector2 GetAngleValue()
